@@ -5,11 +5,11 @@ router.get("/", (req,res) => {
 })
 
 router.post("/", (req,res) => {
- res.send("POST")
+ res.send(req.body)
 })
 
 router.put("/:id", (req,res) => {
-res.send("PUT")
+ res.send("PUT")
 })
 
 router.delete("/:id", (req,res) => {
