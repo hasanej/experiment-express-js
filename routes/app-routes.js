@@ -1,19 +1,32 @@
 const router = require('express').Router();
+const User = require("../models/User.js");
 
 router.get("/", (req,res) => {
- res.send("GET")
+  User.find({})
+  .then(data => res.send(data))
 })
 
 router.post("/", (req,res) => {
- res.send(req.body)
+  User.create(req.body)
+  .then(data => res.send(data))
 })
 
 router.put("/:id", (req,res) => {
- res.send("PUT")
+  const id = req.params.id;
+  const {nama , nomor, email} = req.body
+  User.findByIdAndUpdate(id, {$set: { nama, email, nomor}})
+  .then(data => {
+    User.findById(id)
+    .then(data => res.send(data))
+  })
 })
 
 router.delete("/:id", (req,res) => {
- res.send("Delete")
+  const id = req.params.id;
+  User.findByIdAndRemove(id)
+    .then(data => {
+    res.send("Has Been Deleted")
+  })
 })
 
 module.exports = router;
