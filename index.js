@@ -6,8 +6,8 @@ mongoose.Promise = global.Promise;
 mongoose.connect("mongodb://localhost:27017/app", {useNewUrlParser: true})
 .then(() => console.log("Connected to Mongo"))
 
-//RoutesFile
-const approutes = require("./routes/app-routes");
+//Routes File
+const approutes = require("./routes/AppRoutes");
 const app = express();
 
 //Bodyparser Middleware
@@ -18,4 +18,4 @@ app.use("/app", approutes)
 
 //Port
 const port = 5000 || process.env.PORT;
-app.listen(port, () => console.log('Listening to the port', port))
+app.listen(port, () => console.log('Listening to the port ' + port))
