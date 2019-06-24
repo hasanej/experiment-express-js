@@ -26,8 +26,8 @@ router.put("/edit/:id", (req,res) => {
 	Book.findByIdAndUpdate({_id : req.params.id}, {
 		$set: {
 			title: req.body.title,
-			author : req.body.author,
-			description : req.body.description
+			author: req.body.author,
+			description: req.body.description
 		}
 	})
 	.then(data => {
