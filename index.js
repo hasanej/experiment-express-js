@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 
 mongoose.Promise = global.Promise;
 mongoose.connect("mongodb://localhost:27017/app", {useNewUrlParser: true})
-.then(() => console.log("Connected to Mongo"))
+  .then(() => console.log("Connected to Mongo"));
 
 //Routes File
 const approutes = require("./routes/AppRoutes");
@@ -14,8 +14,8 @@ const app = express();
 app.use(bodyParser.json());
 
 //Routes Middleware
-app.use("/app", approutes)
+app.use("/app", approutes);
 
 //Port
 const port = 5000 || process.env.PORT;
-app.listen(port, () => console.log('Listening to the port ' + port))
+app.listen(port, () => console.log('Listening to the port ' + port));
